@@ -1,0 +1,170 @@
+summary: "Patient Enrollment"
+description: "This is a simple API"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body"
+  name: "body"
+  description: "Accepts a input dictionary"
+  required: true
+  schema:
+    type: "object"
+    properties:
+      Age:
+        type: "integer"
+        format: "int64"
+        example : 42
+      Race:
+        type: "string"
+        format: "string"
+        example : "Caucasian/White"
+      Sex:
+        type: "string"
+        format: "string"
+        example : "Male"
+      BMI:
+        type: "string"
+        format: "string"
+        example : "Between19_25_Normal"    
+      Blood pressure:
+        type: "string"
+        format: "string"
+        example : "Ideal_90_60mmHg"
+      Heart rate:
+        type: "string"
+        format: "string"
+        example : "Above 60"
+      Pregnancy Test:
+        type: "string"
+        format: "string"
+        example : "Negative"
+      Dipstick test:
+        type: "string"
+        format: "string"
+        example : "Normal"
+      Hepatitis B-signal per cutoff (s/c):
+        type: "string"
+        format: "string"
+        example : "5 to 12"
+      atopic H:
+        type: "string"
+        format: "string"
+        example : "Yes"
+      Surgical H:
+        type: "string"
+        format: "string"
+        example : "Bowel resection"
+      Vaccination History:
+        type: "string"
+        format: "string"
+        example : "Tetanus"
+      Concometant Drug/Medications:
+        type: "string"
+        format: "string"
+        example : "Yes"
+      PK Clearance:
+        type: "number"
+        format: "float"
+        example : 0.71
+      Asthma Exac.Defin:
+        type: "string"
+        format: "string"
+        example : "Postive"
+      Spirometry:
+        type: "string"
+        format: "string"
+        example : ">80%"
+      Smoking History (/week):
+        type: "integer"
+        format: "int64"
+        example : 4
+      Alcohol habits (/week-ml):
+        type: "integer"
+        format: "int64"
+        example : 4
+      Creatinine_mg/dL:
+        type: "number"
+        format: "float"
+        example : 1.7
+      Sodium_mmol/L:
+        type: "integer"
+        format: "int64"
+        example : 146
+      Potassium_mmol/L:
+        type: "number"
+        format: "float"
+        example : 5.8
+      Bilirubin_mg/dL:
+        type: "number"
+        format: "float"
+        example : 1.6
+      AST_U/L:
+        type: "integer"
+        format: "int64"
+        example : 25
+      ALT_U/L:
+        type: "integer"
+        format: "int64"
+        example : 12
+      Creatine Kinase_U/L:
+        type: "integer"
+        format: "int64"
+        example : 154
+      Alkaline Phosphatase_U/L:
+        type: "integer"
+        format: "int64"
+        example : 120
+      C-Reactive Protein_mg/L:
+        type: "integer"
+        format: "int64"
+        example : 15
+      Hemoglobin_g/dL:
+        type: "number"
+        format: "float"
+        example : 12.8
+      Leukocytes_10_3/uL:
+        type: "number"
+        format: "float"
+        example : 7.9
+      Neutrophils_cells/uL:
+        type: "integer"
+        format: "int64"
+        example : 4650     
+      Eosinophils_cells/uL:
+        type: "integer"
+        format: "int64"
+        example : 142
+      Basophils_cells/uL:
+        type: "integer"
+        format: "int64"
+        example : 97
+      Lymphocytes_cells/uL:
+        type: "integer"
+        format: "int64"
+        example : 2700
+      Monocytes_cells/uL:
+        type: "integer"
+        format: "int64"
+        example : 394
+      Platelets_10_3/uL:
+        type: "integer"
+        format: "int64"
+        example : 386
+      MCV_fL:
+        type: "integer"
+        format: "int64"
+        example : 77
+      Erythrocytes_M/uL:
+        type: "number"
+        format: "float"
+        example : 3.4
+      Hematocrit_%:
+        type: "integer"
+        format: "int64"
+        example : 36
+        
+responses:
+  405:
+    description: "Invalid input"
