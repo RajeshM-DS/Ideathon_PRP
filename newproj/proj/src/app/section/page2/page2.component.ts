@@ -22,9 +22,24 @@ export class Page2Component implements OnInit {
        
     }
 
+    show1:boolean;
+    show2:boolean;
+    show3:boolean;
+    onShow1(){
+        this.show1 =!this.show1;
+    }
+    onShow2(){
+        this.show2 =!this.show2;
+    }
+    onShow3(){
+        this.show3 =!this.show3;
+    }
+
     ngOnInit() {
         
         this.newform = this.formBuilder.group({
+            TA:[''],
+            PN:[''],
             input1: ['42', Validators.required],
             input2: ['Caucasian/White', Validators.required],
             input3: ['Male', Validators.required],
@@ -39,7 +54,7 @@ export class Page2Component implements OnInit {
             input12: ['Tetanus', Validators.required],
             input13: ['Yes', Validators.required],
             input14: ['0.71', Validators.required],
-            input15: ['Postive', Validators.required],
+            input15: ['Positive', Validators.required],
             input16: ['>80%', Validators.required],
             input17: ['4', Validators.required],
             input18: ['4', Validators.required],

@@ -1,16 +1,29 @@
-<div style="background-color: #fadcb6;" class="jumbotron">
+<div style="background-color: #fadcb6;padding-bottom: 1rem;" class="jumbotron">
+<div  class="container">
+    <h3 style="padding-left: 450px;padding-bottom: 40px;">Patient Dropout</h3>
+<div >
+     
+<form class="" [formGroup]="newform" >
+    <div style="margin-left: 400px; width: 300px;" class="form-group">
+        <label for="TA">Therapeutic Areas(TA):</label>
+        <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.TA.errors }" formControlName="TA" id="TA">
+            <option selected="" value="o">Oncology</option>
+            <option value="v">Vaccines</option>
+        </select>
+    </div>
+    <div style="margin-left: 400px; width: 300px;" class="form-group">
+        <label for="PN">Patient Number:</label>
+        <input type="text" formControlName="PN" class="form-control" />
+    </div>
 
-<div   class="container">
-    <div class="row">
-        <div>
-            <h3 style="padding-left: 450px;">Patient Dropout</h3>
-       
-            <h5>Criteria:</h5>
-        </div>
-        
 
-<form class="flex-container" [formGroup]="newform" >
-    <div class="form-group">
+    <div style="padding-right: 100px;padding-left: 400px;"class="form-group">
+        <button (click)="onShow1()" class="btn btn-primary but">
+            Basic Results</button>
+    </div>
+
+    <div  class="first" *ngIf="show1">
+        <div class="form-group">
         <label for="input1">Trial Visits Average Delay</label>
         <input type="text" formControlName="input1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input1.errors }" />
         <div *ngIf="submitted && f.input1.errors" class="invalid-feedback">
@@ -219,7 +232,7 @@
     <div class="form-group">
         <label for="input19">Asthma Examination:</label>
         <div>
-            <input type="radio" value="Postive" formControlName="input19"> Postive
+            <input type="radio" value="Positive" formControlName="input19"> Postive
             <span style="padding-left: 10px;"></span>
             <input  type="radio" value="Negative" formControlName="input19"> Negative
         </div>
@@ -255,15 +268,14 @@
         <div *ngIf="submitted && f.input22.errors" class="invalid-feedback">
             <div *ngIf="f.input22.errors.required">required</div>
         </div>
-    </div>
-    <div></div>
-    <div></div>
-    <div class="form-group">
-        <button (click)="onShow2()" class="btn btn-primary">
+    </div></div>
+    
+    <div style="padding-right: 100px;padding-left: 400px;" class="form-group">
+        <button (click)="onShow2()"  class="btn btn-primary but">
             Lab Chemistry Results</button>
     </div>
 
-    <div class="child" *ngIf="show2">
+    <div class="first" *ngIf="show2">
 
         <div class="form-group">
             <label for="input23">Creatinine (mg/dL)</label>
@@ -329,14 +341,13 @@
             </div>
         </div>
     </div>
-    <div></div>
-    <div></div>
-    <div class="form-group">
-        <button (click)="onShow3()" class="btn btn-primary">
+    
+    <div class="form-group" style="padding-left: 400px;">
+        <button (click)="onShow3()"  class="btn btn-primary but">
             Lab Hematology Results</button>
     </div>
 
-    <div *ngIf="show3">
+    <div class="first" *ngIf="show3">
         <div class="form-group">
         <label for="input32">Hemoglobin Range (g/dL)</label>
         <input type="text" formControlName="input32" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input32.errors }" />
@@ -419,13 +430,14 @@
     
    
 </form>
-<div style="padding-left: 500px;" class="form-group">
+<div style="padding-left: 500px;padding-top: 30px;" class="form-group">
     <button (click)="onSubmit()" class="btn btn-primary">
         <span  ></span>
         Submit
     </button>
 </div>
-    </div>
+
+</div>
 </div>
 
 </div>

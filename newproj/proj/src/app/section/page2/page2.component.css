@@ -1,10 +1,8 @@
-.flex-container {
+.first {
   display: flex;
   flex-wrap: wrap;
-  
-
 }
-.flex-container > div {
+.first > div {
   width: 300px;
   margin: 30px;
   
@@ -31,3 +29,9 @@ width: 30px;
 margin: 30px;
 
 } */
+
+.but{
+width: 300px;
+font-weight: bold;
+    font-family: "Lucida Sans", serif;
+}
