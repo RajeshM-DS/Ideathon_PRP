@@ -1,0 +1,186 @@
+summary: "Patient Retention"
+description: "This is a simple API"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: "body"
+  name: "body"
+  description: "Accepts a input dictionary"
+  required: true
+  schema:
+    type: "object"
+    properties:
+      Visits_delay:
+        type: "integer"
+        format: "int64"
+        example : 34
+      Age:
+        type: "integer"
+        format: "int64"
+        example : 35
+      Race:
+        type: "string"
+        format: "string"
+        example : "Caucasian/White"
+      Sex:
+        type: "string"
+        format: "string"
+        example : "Male"
+      AE_Intensity:
+        type: "string"
+        format: "string"
+        example : "Mild"    
+      Action_taken:
+        type: "string"
+        format: "string"
+        example : "Dose not changed"
+      Recovery_duration:
+        type: "integer"
+        format: "int64"
+        example : 15
+      Tumor_Lesion:
+        type: "string"
+        format: "string"
+        example : "Primary Tumor"
+      Tumor_Location:
+        type: "string"
+        format: "string"
+        example : "PANCREAS"
+      Fatal:
+        type: "string"
+        format: "string"
+        example : "No"
+      Pregnancy_Test:
+        type: "string"
+        format: "string"
+        example : "Negative"
+      Dipstick_test:
+        type: "string"
+        format: "string"
+        example : "Normal"
+      Hepatitis_Bsignal_per_cutoff:
+        type: "string"
+        format: "string"
+        example : "5 to 12"
+      atopic_H:
+        type: "string"
+        format: "string"
+        example : "Yes"
+      Surgical_H:
+        type: "string"
+        format: "string"
+        example : "Bowel resection"
+      Vaccination_History:
+        type: "string"
+        format: "string"
+        example : "Tetanus"
+      Concometant_Drug_Medications:
+        type: "string"
+        format: "string"
+        example : "Yes"
+      PK_Clearance:
+        type: "number"
+        format: "float"
+        example : 0.71
+      Asthma_Exac_Defin:
+        type: "string"
+        format: "string"
+        example : "Positive"
+      Spirometry:
+        type: "string"
+        format: "string"
+        example : ">80%"
+      Smoking_History:
+        type: "integer"
+        format: "int64"
+        example : 4
+      Alcohol_habits:
+        type: "integer"
+        format: "int64"
+        example : 4
+      Creatinine_mg_dL:
+        type: "number"
+        format: "float"
+        example : 1.7
+      Sodium_mmol_L:
+        type: "integer"
+        format: "int64"
+        example : 146
+      Potassium_mmol_L:
+        type: "number"
+        format: "float"
+        example : 5.8
+      Bilirubin_mg_dL:
+        type: "number"
+        format: "float"
+        example : 1.6
+      AST_U_L:
+        type: "integer"
+        format: "int64"
+        example : 25
+      ALT_U_L:
+        type: "integer"
+        format: "int64"
+        example : 12
+      Creatine_Kinase_U_L:
+        type: "integer"
+        format: "int64"
+        example : 154
+      Alkaline_Phosphatase_U_L:
+        type: "integer"
+        format: "int64"
+        example : 120
+      C_Reactive_Protein_mg_L:
+        type: "integer"
+        format: "int64"
+        example : 15
+      Hemoglobin_g_dL:
+        type: "number"
+        format: "float"
+        example : 12.8
+      Leukocytes_10_3_uL:
+        type: "number"
+        format: "float"
+        example : 7.9
+      Neutrophils_cells_uL:
+        type: "integer"
+        format: "int64"
+        example : 4650     
+      Eosinophils_cells_uL:
+        type: "integer"
+        format: "int64"
+        example : 142
+      Basophils_cells_uL:
+        type: "integer"
+        format: "int64"
+        example : 97
+      Lymphocytes_cells_uL:
+        type: "integer"
+        format: "int64"
+        example : 2700
+      Monocytes_cells_uL:
+        type: "integer"
+        format: "int64"
+        example : 394
+      Platelets_10_3_uL:
+        type: "integer"
+        format: "int64"
+        example : 386
+      MCV_fL:
+        type: "integer"
+        format: "int64"
+        example : 77
+      Erythrocytes_M_uL:
+        type: "number"
+        format: "float"
+        example : 3.4
+      Hematocrit:
+        type: "integer"
+        format: "int64"
+        example : 36
+        
+responses:
+  405:
+    description: "Invalid input"
