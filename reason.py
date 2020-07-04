@@ -28,6 +28,10 @@ def reason_dropout(df):
     def flag_habit(df):
         if  df['Smoking History (/week)']>=35 or df['Alcohol habits (/week-ml)']>=4:
             return 'Alcohol Dependence will affect drug reactions in particular visits'
+        
+    def flag_cm(df):
+        if  df['Concometant Drug/Medications']=='Yes':
+            return 'Other Concometant Drug/Medications will affect the process of pharmacokinetics'
       
     df['Flag_c'] = df.apply(flag_che, axis = 1) 
     df['Flag_h'] = df.apply(flag_hem, axis = 1) 
@@ -35,9 +39,10 @@ def reason_dropout(df):
     df['Flag_t'] = df.apply(flag_test, axis = 1) 
     df['Flag_ae'] = df.apply(flag_ae, axis = 1) 
     df['Flag_hab'] = df.apply(flag_habit, axis = 1) 
+    df['Flag_cm'] = df.apply(flag_cm, axis = 1) 
     
     
-    value=[df['Flag_c'][0],df['Flag_h'][0],df['Flag_re'][0],df['Flag_t'][0],df['Flag_ae'][0],df['Flag_hab'][0]]
+    value=[df['Flag_c'][0],df['Flag_h'][0],df['Flag_re'][0],df['Flag_t'][0],df['Flag_ae'][0],df['Flag_hab'][0],df['Flag_cm'][0]]
     
     return ';'.join((va) for va in value if va is not None)
     
@@ -66,6 +71,10 @@ def reason_enroll(df):
     def flag_enrol(df):
         if  df['BMI']=='Above30_obese' or df['Dipstick test']=='Abnormal':
             return 'Dipstick test results and Hepatitis Signal and BMI is not providing good evidence to enroll the trial'
+        
+    def flag_cm(df):
+        if  df['Concometant Drug/Medications']=='Yes':
+            return 'Other Concometant Drug/Medications and pervious Vaccination History will affect the process of pharmacokinetics.so please check the eligibility compound'
 
     
     df['Flag_c'] = df.apply(flag_che, axis = 1) 
@@ -74,9 +83,9 @@ def reason_enroll(df):
     df['Flag_t'] = df.apply(flag_test, axis = 1) 
     df['Flag_enroll'] = df.apply(flag_enrol, axis = 1) 
     df['Flag_hab'] = df.apply(flag_habit, axis = 1)
+    df['Flag_cm'] = df.apply(flag_cm, axis = 1) 
     
-    
-    value=[df['Flag_c'][0],df['Flag_h'][0],df['Flag_re'][0],df['Flag_t'][0],df['Flag_enroll'][0],df['Flag_hab'][0]]
+    value=[df['Flag_c'][0],df['Flag_h'][0],df['Flag_re'][0],df['Flag_t'][0],df['Flag_enroll'][0],df['Flag_hab'][0],df['Flag_cm'][0]]
     
     return ';'.join((va) for va in value if va is not None)
     
