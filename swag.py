@@ -6,7 +6,7 @@ Created on Sun Jun 21 23:04:59 2020
 """
 
 import sys
-sys.path.append("D:\\Ideathon_PRP-master")
+sys.path.append("D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular")
 
 import json
 import numpy as np
@@ -20,14 +20,15 @@ from flask_cors import CORS
 import pickle
 import pandas as pd
 
-model = pickle.load(open('D:\\Ideathon_PRP-master\\engine.pkl', 'rb'))
+model = pickle.load(open('D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular\\engine.pkl', 'rb'))
 
-model_columns = pickle.load(open('D:\\Ideathon_PRP-master\\engine_columns.pkl', 'rb'))
+model_columns = pickle.load(open('D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular\\engine_columns.pkl', 'rb'))
 
-model2 = pickle.load(open('D:\\Ideathon_PRP-master\\engine_enrollment.pkl', 'rb'))
+model2 = pickle.load(open('D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular\\engine_enrollment.pkl', 'rb'))
 
-model2_columns = pickle.load(open('D:\\Ideathon_PRP-master\\engine_enrollment_columns.pkl', 'rb'))
+model2_columns = pickle.load(open('D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular\\engine_enrollment_columns.pkl', 'rb'))
 
+from reason import reason_dropout,reason_enroll
 
 app = Flask(__name__)
 CORS(app)
@@ -63,7 +64,7 @@ swagger = Swagger(app, config=swagger_config, template=template)
 
 
 @app.route("/patient_prediction", methods=["POST"])
-@swag_from("D:\\Ideathon_PRP-master\\swagger_config.yml")
+@swag_from("D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular\\swagger_config.yml")
 def patient_prediction():
     input_json = request.get_json()
     
@@ -121,20 +122,23 @@ def patient_prediction():
     for col in model_columns:
         if col not in df_user.columns:
             df_user[col] = 0
-
+    reason_value=reason_dropout(df)
+    
     if model.predict_classes(df_user) == 1:
         result='Patient will drop out from the oncology trial'
+        results=result + ';' + reason_value
     else:
         result='Patient will not drop out from the oncology trial'
-
+        results=result
+      
     #except:
      #   result='error'
-    return json.dumps(result)
+    return json.dumps(results)
 
 
 
 @app.route("/patient_enrollment", methods=["POST"])
-@swag_from("D:\\Ideathon_PRP-master\\swagger_config_enrollment.yml")
+@swag_from("D:\Rajesh\Ideathon\Patient Retention Predictor\Program\App_Angular\\swagger_config_enrollment.yml")
 def patient_enrollment():
     input_json = request.get_json()
     try:
@@ -188,15 +192,19 @@ def patient_enrollment():
         for col in model2_columns:
             if col not in df_user_2.columns:
                 df_user_2[col] = 0
+                
+        reason_value=reason_enroll(df_2)
     
         if model2.predict_classes(df_user_2) == 1:
             result_2='This patient is eligible for oncology trial and allow this patient for enrollment'
+            results_2=result_2
         else:
             result_2='This patient is not eligible for oncology trial'
+            results_2=result_2 + ';' + reason_value               
 
     except:
-        result_2='error'
-    return json.dumps(result_2)
+        results_2='error'
+    return json.dumps(results_2)
 
 
 if __name__ == "__main__":
