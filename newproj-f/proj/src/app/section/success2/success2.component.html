@@ -1,0 +1,36 @@
+<div  style="background-color: #fefeff;" class="">
+    <div style="padding-bottom: 10rem;" class="container">
+        <div style="padding-top: 40px;" class="row">
+            <div style="padding-left: 280px;">
+                
+                <div *ngIf="success==='true'" >
+                    <img src="./assets/enrollsucess.jpg" alt="Girl in a jacket" width="200" height="200"
+                    style="vertical-align:middle;margin:0px 150px">
+                    <div style="padding-bottom: 100px;"></div>
+                    <strong class="alert alert-success" class="alert alert-success">Success! {{a[0]}}</strong>
+                </div>
+                <div *ngIf="success==='false'">
+                    <img src="./assets/notenroll.jpg" alt="Girl in a jacket" width="200" height="200"
+                    style="vertical-align:middle;margin:0px 150px">
+                    <div style="padding-bottom: 30px;padding-top: 20px;">
+                        <strong class="alert alert-danger">Alert!!! {{a[0]}}</strong>
+                    </div>
+                    <div style ="font-weight: bold;font-size: 20px;padding-bottom: 10px;">Reason for Ineligible:</div>
+                    <div *ngFor="let b of a;let i=index"> 
+                       <div class="alert alert-danger" *ngIf='i!==0'>{{b}}</div> 
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+

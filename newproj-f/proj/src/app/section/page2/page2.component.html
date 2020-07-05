@@ -1,0 +1,411 @@
+<div style="background-color: #fadcb6;padding-bottom: 8rem;" class="jumbotron">
+<div  class="container">
+        <h3 style="padding-left: 430px;padding-bottom: 40px;">Patient Enrollment</h3>
+<div>            
+            
+<form class="" [formGroup]="newform" >
+
+                <div style="margin-left: 400px; width: 300px;" class="form-group">
+                    <label for="TA">Therapeutic Areas(TA):</label>
+                    <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.TA.errors }" formControlName="TA" id="TA">
+                        <option selected="" value="o">Oncology</option>
+                        <option value="v">Vaccines</option>
+                    </select>
+                </div>
+                <div style="margin-left: 400px; width: 300px;" class="form-group">
+                    <label for="PN">Patient Number:</label>
+                    <input type="text" formControlName="PN" class="form-control" />
+                </div>
+            
+            
+                <div style="padding-right: 100px;padding-left: 400px;"class="form-group">
+                    <button (click)="onShow1()" class="btn btn-primary but">
+                        Basic Results</button>
+                </div>
+                <div class="first" *ngIf="show1">
+                    <div class="form-group">
+                        <label for="input1">Age</label>
+                        <input type="text" formControlName="input1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input1.errors }" />
+                        <div *ngIf="submitted && f.input1.errors" class="invalid-feedback">
+                            <div *ngIf="f.input1.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input2">Race</label>
+                        <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input2.errors }" formControlName="input2" id="input2">
+                            <option selected="selected" value="Caucasian/White">Caucasian/White</option>
+                            <option value="Black">Black</option>
+                            <option value="Asian/Oriental">Asian/Oriental</option>
+                            <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+                            <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <!-- <input type="text" formControlName="input2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input2.errors }" /> -->
+                        <div *ngIf="submitted && f.input2.errors" class="invalid-feedback">
+                            <div *ngIf="f.input2.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input3">Sex:</label>
+                        <div>
+                            <input type="radio" value="Male" formControlName="input3"> Male
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="Female" formControlName="input3"> Female
+                        </div> 
+                        <!-- <input type="text" formControlName="input3" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input3.errors }" /> -->
+                        <div *ngIf="submitted && f.input3.errors" class="invalid-feedback">
+                            <div *ngIf="f.input3.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input4">BMI:</label>
+                        <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input4.errors }" formControlName="input4" id="input4">
+                            <option selected="selected" value="Below18_underweight">Below18_underweight</option>
+                            <option value="Between19_25_Normal">Between19_25_Normal</option>
+                            <option value="Between25_30_Overweight">Between25_30_Overweight</option>
+                            <option value="Above30_obese">Above30_obese</option>
+                        </select>
+                        <!-- <input type="text" formControlName="input4" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input4.errors }" /> -->
+                        <div *ngIf="submitted && f.input4.errors" class="invalid-feedback">
+                            <div *ngIf="f.input4.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input5">Blood Pressure:</label>
+                        <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input5.errors }" formControlName="input5" id="input5">
+                            <option selected="selected" value="Ideal_90_60mmHg">Ideal_90_60mmHg</option>
+                            <option value="High_140_90mmHg">High_140_90mmHg</option>
+                            <option value="Between25_30_Overweight">Between25_30_Overweight</option>
+                            <option value="Low_30_60mmHg">Low_30_60mmHg</option>
+                        </select>
+                        <!-- <input type="text" formControlName="input6" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input6.errors }" /> -->
+                        <div *ngIf="submitted && f.input6.errors" class="invalid-feedback">
+                            <div *ngIf="f.input6.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input6">Heart Rate:</label>
+                        <div>
+                            <input type="radio" value="Below 60" formControlName="input6"> Below 60
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="Above 60" formControlName="input6"> Above 60
+                        </div> 
+                        <!-- <input type="text" formControlName="input5" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input5.errors }" /> -->
+                        <div *ngIf="submitted && f.input6.errors" class="invalid-feedback">
+                            <div *ngIf="f.input6.errors.required">required</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="input7">Pregnancy Test:</label>
+                        <div>
+                            <input type="radio" value="Positive" formControlName="input7"> Positive
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="Negative" formControlName="input7"> Negative
+                        </div>
+                        <!-- <input type="text" formControlName="input7" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input7.errors }" /> -->
+                        <div *ngIf="submitted && f.input7.errors" class="invalid-feedback">
+                            <div *ngIf="f.input7.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input8">Dipstick Test:</label>
+                        <div>
+                            <input type="radio" value="Normal" formControlName="input8"> Normal
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="Abnormal" formControlName="input8"> Abnormal
+                        </div>
+                        <!-- <input type="text" formControlName="input8" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input8.errors }" /> -->
+                        <div *ngIf="submitted && f.input8.errors" class="invalid-feedback">
+                            <div *ngIf="f.input8.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input9">Hepatitis B-Signal Cutoff (s/c):</label>
+                        <div>
+                            <input type="radio" value="1 to 5" formControlName="input9"> 1 to 5
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="5 to 12" formControlName="input9"> 5 to 12
+                        </div>
+                        <!-- <input type="text" formControlName="input9" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input9.errors }" /> -->
+                        <div *ngIf="submitted && f.input9.errors" class="invalid-feedback">
+                            <div *ngIf="f.input9.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input10">Atopic History:</label>
+                        <div>
+                            <input type="radio" value="Yes" formControlName="input10"> Yes
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="No" formControlName="input10"> No
+                        </div>
+                        <!-- <input type="text" formControlName="input10" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input10.errors }" /> -->
+                        <div *ngIf="submitted && f.input10.errors" class="invalid-feedback">
+                            <div *ngIf="f.input10.errors.required">required</div>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="input11">Surgical History:</label>
+                        <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input11.errors }" formControlName="input11" id="input11">
+                            <option selected="selected" value="Appendectomy">Appendectomy</option>
+                            <option value="Bowel resection">Bowel resection</option>
+                            <option value="Endoscopy surgery">Endoscopy surgery</option>    
+                        </select>
+                       <!--  <input type="text" formControlName="input11" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input11.errors }" /> -->
+                        <div *ngIf="submitted && f.input11.errors" class="invalid-feedback">
+                            <div *ngIf="f.input11.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input12">Vaccination History:</label>
+                        <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input12.errors }" formControlName="input12" id="input12">
+                            <option selected="selected" value="Dengu">Dengu</option>
+                            <option value="Anthrax">Anthrax</option>
+                            <option value="Tetanus">Tetanus</option>    
+                        </select>
+                        <!-- <input type="text" formControlName="input12" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input12.errors }" /> -->
+                        <div *ngIf="submitted && f.input12.errors" class="invalid-feedback">
+                            <div *ngIf="f.input12.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input13">Concometant Drug Medications:</label>
+                        <div>
+                            <input type="radio" value="Yes" formControlName="input13"> Yes
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="No" formControlName="input13"> No
+                        </div>
+                        <!-- <input type="text" formControlName="input13" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input13.errors }" /> -->
+                        <div *ngIf="submitted && f.input13.errors" class="invalid-feedback">
+                            <div *ngIf="f.input13.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input14">PK Clearance (L/h)</label>
+                        <input type="text" formControlName="input14" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input14.errors }" />
+                        <div *ngIf="submitted && f.input14.errors" class="invalid-feedback">
+                            <div *ngIf="f.input14.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input15">Asthma Examination:</label>
+                        <div>
+                            <input type="radio" value="Positive" formControlName="input15"> Positive
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="Negative" formControlName="input15"> Negative
+                        </div>
+                        <!-- <input type="text" formControlName="input15" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input15.errors }" /> -->
+                        <div *ngIf="submitted && f.input15.errors" class="invalid-feedback">
+                            <div *ngIf="f.input15.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input16">Spirometry Result:</label>
+                        <div>
+                            <input type="radio" value="60-69%" formControlName="input16"> 60-69%
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value="70-79%" formControlName="input16"> 70-79%
+                            <span style="padding-left: 10px;"></span>
+                            <input  type="radio" value=">80%" formControlName="input16"> >80%
+                        </div>
+                       <!--  <input type="text" formControlName="input16" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input16.errors }" /> -->
+                        <div *ngIf="submitted && f.input16.errors" class="invalid-feedback">
+                            <div *ngIf="f.input16.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input17">Smoking History (Count/week)</label>
+                        <input type="text" formControlName="input17" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input17.errors }" />
+                        <div *ngIf="submitted && f.input17.errors" class="invalid-feedback">
+                            <div *ngIf="f.input17.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input18">Alcohol Habits (ml/week)</label>
+                        <input type="text" formControlName="input18" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input18.errors }" />
+                        <div *ngIf="submitted && f.input18.errors" class="invalid-feedback">
+                            <div *ngIf="f.input18.errors.required">required</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="padding-right: 100px;padding-left: 400px;" class="form-group">
+                    <button (click)="onShow2()"  class="btn btn-primary but">
+                        Lab Chemistry Results</button>
+                </div>
+
+                <div class="first" *ngIf="show2">
+                    <div class="form-group">
+                        <label for="input19">Creatinine (mg/dL)</label>
+                        <input type="text" formControlName="input19" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input19.errors }" />
+                        <div *ngIf="submitted && f.input19.errors" class="invalid-feedback">
+                            <div *ngIf="f.input19.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input20">Sodium (mmol/L)</label>
+                        <input type="text" formControlName="input20" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input20.errors }" />
+                        <div *ngIf="submitted && f.input20.errors" class="invalid-feedback">
+                            <div *ngIf="f.input20.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input21">Potassium (mmol/L)</label>
+                        <input type="text" formControlName="input21" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input21.errors }" />
+                        <div *ngIf="submitted && f.input21.errors" class="invalid-feedback">
+                            <div *ngIf="f.input21.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input22">Bilirubin (mg/dL)</label>
+                        <input type="text" formControlName="input22" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input22.errors }" />
+                        <div *ngIf="submitted && f.input22.errors" class="invalid-feedback">
+                            <div *ngIf="f.input22.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input23">AST Result (U/L)</label>
+                        <input type="text" formControlName="input23" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input23.errors }" />
+                        <div *ngIf="submitted && f.input23.errors" class="invalid-feedback">
+                            <div *ngIf="f.input23.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input24">ALT Result (U/L)</label>
+                        <input type="text" formControlName="input24" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input24.errors }" />
+                        <div *ngIf="submitted && f.input24.errors" class="invalid-feedback">
+                            <div *ngIf="f.input24.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input25">Creatine Kinase Value (U/L)</label>
+                        <input type="text" formControlName="input25" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input25.errors }" />
+                        <div *ngIf="submitted && f.input25.errors" class="invalid-feedback">
+                            <div *ngIf="f.input25.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input26">Alkaline Phosphatase (U/L)</label>
+                        <input type="text" formControlName="input26" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input26.errors }" />
+                        <div *ngIf="submitted && f.input26.errors" class="invalid-feedback">
+                            <div *ngIf="f.input26.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input27">C-Reactive Protein Value (mg/L)</label>
+                        <input type="text" formControlName="input27" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input27.errors }" />
+                        <div *ngIf="submitted && f.input27.errors" class="invalid-feedback">
+                            <div *ngIf="f.input27.errors.required">required</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="padding-left: 400px;">
+                    <button (click)="onShow3()"  class="btn btn-primary but">
+                        Lab Hematology Results</button>
+                </div>
+
+                <div class="first" *ngIf="show3">
+                    <div class="form-group">
+                        <label for="input28">Hemoglobin Range (g/dL)</label>
+                        <input type="text" formControlName="input28" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input28.errors }" />
+                        <div *ngIf="submitted && f.input28.errors" class="invalid-feedback">
+                            <div *ngIf="f.input28.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input29">Leukocytes (10^3/uL)</label>
+                        <input type="text" formControlName="input29" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input29.errors }" />
+                        <div *ngIf="submitted && f.input29.errors" class="invalid-feedback">
+                            <div *ngIf="f.input29.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input30">Neutrophils (cells/uL)</label>
+                        <input type="text" formControlName="input30" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input30.errors }" />
+                        <div *ngIf="submitted && f.input30.errors" class="invalid-feedback">
+                            <div *ngIf="f.input30.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input31">Eosinophils (cells/uL)</label>
+                        <input type="text" formControlName="input31" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input31.errors }" />
+                        <div *ngIf="submitted && f.input31.errors" class="invalid-feedback">
+                            <div *ngIf="f.input31.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input32">Basophils (cells/uL)</label>
+                        <input type="text" formControlName="input32" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input32.errors }" />
+                        <div *ngIf="submitted && f.input32.errors" class="invalid-feedback">
+                            <div *ngIf="f.input32.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input33">Lymphocytes (cells/uL)</label>
+                        <input type="text" formControlName="input33" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input33.errors }" />
+                        <div *ngIf="submitted && f.input33.errors" class="invalid-feedback">
+                            <div *ngIf="f.input33.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input34">Monocytes (cells/uL)</label>
+                        <input type="text" formControlName="input34" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input34.errors }" />
+                        <div *ngIf="submitted && f.input34.errors" class="invalid-feedback">
+                            <div *ngIf="f.input34.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input35">Platelets (10^3/uL)</label>
+                        <input type="text" formControlName="input35" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input35.errors }" />
+                        <div *ngIf="submitted && f.input35.errors" class="invalid-feedback">
+                            <div *ngIf="f.input35.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input36">MCV (fL)</label>
+                        <input type="text" formControlName="input36" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input36.errors }" />
+                        <div *ngIf="submitted && f.input36.errors" class="invalid-feedback">
+                            <div *ngIf="f.input36.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input37">Erythrocytes (M/uL)</label>
+                        <input type="text" formControlName="input37" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input37.errors }" />
+                        <div *ngIf="submitted && f.input37.errors" class="invalid-feedback">
+                            <div *ngIf="f.input37.errors.required">required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input38">Hematocrit (%)</label>
+                        <input type="text" formControlName="input38" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.input38.errors }" />
+                        <div *ngIf="submitted && f.input38.errors" class="invalid-feedback">
+                            <div *ngIf="f.input38.errors.required">required</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+            <div style="padding-left: 500px;padding-top: 30px;" class="form-group">
+                <button (click)="onSubmit()" class="btn btn-primary">
+                    <span  ></span>
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+
+
+

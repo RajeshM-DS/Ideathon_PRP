@@ -1,0 +1,25 @@
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="true">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" *ngIf="show" routerLink="/dashboard">Dashboard</a>
+      <h3 style="color:aliceblue; padding-left: 410px;">Patient Retention Predictor</h3>
+      
+  </div>
+</nav>
+
+
+<!-- main app container -->
+
+  <router-outlet></router-outlet>
+
+
+<!-- credits -->
+<!-- <div class="text-center">
+  <p>
+      <a href="https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial" target="_top">Ned Tutorial</a>
+  </p>
+  <p>
+      <a href="http://jasonwatmore.com" target="_top">Med.com</a>
+  </p>
+</div> -->
